@@ -1,4 +1,4 @@
-package entities;
+package com.project.course.entities;
 
 import jakarta.persistence.Table;
 

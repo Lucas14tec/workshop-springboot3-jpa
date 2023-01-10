@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 
 @SpringBootApplication
+@EntityScan("com.project.course.entities")
 public class CourseApplication {
 
 	public static void main(String[] args) {
