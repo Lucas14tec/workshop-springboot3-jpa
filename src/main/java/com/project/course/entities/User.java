@@ -1,17 +1,15 @@
 package com.project.course.entities;
 
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_user")
 public class User implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -23,6 +21,10 @@ public class User implements Serializable {
     private String password;
 
 
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
     public User(){
 
     }
@@ -100,4 +102,6 @@ public class User implements Serializable {
         result = prime * result + ((id== null) ? 0 : id.hashCode());
         return result;
     }
+
+
 }
